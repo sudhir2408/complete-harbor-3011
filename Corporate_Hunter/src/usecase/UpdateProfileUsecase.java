@@ -1,0 +1,43 @@
+package usecase;
+
+import java.util.Scanner;
+
+import dao.EmpDAO;
+import dao.EmpDAOImpl;
+import exceptions.EmployeeException;
+import models.Employee;
+
+public class UpdateProfileUsecase {
+
+	public static void updateProfile(Scanner sc, Employee e) {
+		
+		System.out.println("Enter New Email : (If you don't want to update Email, Please Enter the current Email)");
+		String email = sc.next();
+		System.out.println("Enter New Address : (If you don't want to update Address, Please Enter the current Address)");
+		String address = sc.next();
+	
+	 	
+		EmpDAO dao = new EmpDAOImpl();
+		
+		try {
+			String ans = dao.updateEmpProfile(email, address, e);
+			System.out.println();
+			System.out.println("✔✔✔✔✔✔✔✔✔✔✔| " + ans + " |✔✔✔✔✔✔✔✔✔✔✔");
+			System.out.println();
+
+			
+			if(ans.equals("Profile Updated Successfully !")) {
+				e.setAddress(address);
+				e.setEmail(email);
+			}
+			
+			
+		} catch (EmployeeException e1) {
+			System.out.println();
+			System.out.println("✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘| " + e1.getMessage() + " |✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘");
+			System.out.println();
+		}
+		
+		
+	}
+}

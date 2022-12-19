@@ -1,0 +1,36 @@
+create table Employee
+(
+eid int auto_increment primary key,
+ename varchar(20),
+deptid int ,
+email varchar(20),
+password varchar(120),
+salary int ,
+address varchar(120),
+leave_left int,
+foreign key(eid) references department (did)
+);
+
+
+
+create table department 
+(
+did int primary key,
+dname varchar(20),
+d_head_id int
+);
+
+
+
+
+create table leave_table
+(
+lid int primary key,
+empid int,
+empname varchar(20),
+deptid int,
+startdate date,
+enddate date,
+reason varchar(120),
+status varchar(20)
+);
