@@ -5,14 +5,7 @@
 </p>
   <h1 align="center"> A Human Resource Management System </h1?
   <br>
-  
-   <h1> Flow Diagram </h1>
-
-  <p align="center">
-  <img width="960" height="650" src="">
-</p>
-
-
+ 
 <h1> ER Diagram </h1>
 
  <p align="center">
